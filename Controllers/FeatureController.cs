@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VEGA.Controllers.Resources;
 using VEGA.Models;
@@ -18,6 +19,7 @@ namespace VEGA.Controllers
             this.mapper = mapper;
         }
 
+        [HttpGetAttribute("/api/features")]
         public async Task<IEnumerable<FeatureResource>> GetFeatures()
         {
             var features = await contex.Features.ToListAsync();
